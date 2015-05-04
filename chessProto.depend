@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1430513973 source:c:\users\siggi\desktop\semichess\chesspiece.cpp
+	"chessPiece.h"
+
+1430591292 c:\users\siggi\desktop\semichess\chesspiece.h
+	"move.h"
+	"board.h"
+
+1430573280 c:\users\siggi\desktop\semichess\move.h
+	<string>
+	<vector>
+
+1430582480 source:c:\users\siggi\desktop\semichess\main.cpp
+	<iostream>
+	<cctype>
+	"board.h"
+
+1430591032 c:\users\siggi\desktop\semichess\board.h
+	<iostream>
+	<cstdlib>
+	"chessPiece.h"
+
+1430588999 source:c:\users\siggi\desktop\semichess\board.cpp
+	"board.h"
+
