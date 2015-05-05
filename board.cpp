@@ -7,6 +7,8 @@
 #include "Rook.h"
 
 Board::Board(){
+    srand(time(NULL));
+    m_turn = 0;
     for(int i = 0; i < 8; ++i){
         for(int j = 0; j < 8; ++j){
             grid[i][j] = NULL;
@@ -28,7 +30,7 @@ Board::~Board(){
 }
 
 int Board::getTurn(){
-    return turn;
+    return m_turn;
 }
 
 //print out the board in ascii character form
@@ -116,4 +118,17 @@ void Board::generateChessPiece(PIECE_COLOR color){
     }
 }
 
-vector<Move> getLegalMoves(ChessPiece piece, vector<Move>& moves)
+void Board::simulateOneMove(ChessPiece* piece, vector<Move> moves, int x, int y){
+    int to_x, to_y, n;
+    n = rand() % (int)moves.size();
+    string move = moves[n].getMove();
+    cout << "Selected square: " << move << endl;
+    to_x = move[1] - '0' - 1;
+    to_y = move[0] - 'a';
+    if(grid[to_x][to_y] != NULL){
+        delete grid[to_x][to_y];
+        grid[to_x][to_y] = NULL;
+    }
+    grid[to_x][to_y] = piece;
+    grid[x][y] = NULL;
+}

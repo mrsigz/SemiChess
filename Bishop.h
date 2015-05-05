@@ -4,6 +4,7 @@
 
 class Bishop : public ChessPiece{
 public:
+    Bishop() : ChessPiece() {}
     Bishop(Board* board, PIECE_COLOR color)
         : ChessPiece(board, color, BISHOP) { }
     ~Bishop() {}
@@ -13,7 +14,7 @@ public:
         if(getColor() == WHITE) return 'B';
         return 'b';
     }
-    void move(){}
+    vector<Move> getLegalMoves(const Board& board, vector<Move>& moves, int x, int y);
 protected:
 private:
 };

@@ -10,3 +10,8 @@ bin/Debug/chessProto.exe
 chessProto.depend
 *.layout
 *.exe
+*.exe
+chess.zip
+*.depend
+chessProto.layout
+*.o

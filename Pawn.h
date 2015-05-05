@@ -13,9 +13,7 @@ public:
         if(getColor() == WHITE) return 'P';
         return 'p';
     }
-    vector<Move> getLegalMoves(Board* board, vector<Move>& moves){
-
-    }
+    vector<Move> getLegalMoves(const Board& board, vector<Move>& moves, int x, int y);
 protected:
 private:
 };

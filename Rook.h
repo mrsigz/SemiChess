@@ -4,6 +4,7 @@
 
 class Rook : public ChessPiece{
 public:
+    Rook(): ChessPiece() {}
     Rook(Board* board, PIECE_COLOR color)
         : ChessPiece(board, color, ROOK) { }
     ~Rook() {}
@@ -13,7 +14,7 @@ public:
         if(getColor() == WHITE) return 'R';
         return 'r';
     }
-    void move(){}
+    vector<Move> getLegalMoves(const Board& board, vector<Move>& moves, int x, int y);
 protected:
 private:
 };

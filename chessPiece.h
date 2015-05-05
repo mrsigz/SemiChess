@@ -14,6 +14,7 @@ protected:
     PIECE_COLOR m_color;
     PIECE_TYPE m_type;
 public:
+    ChessPiece(){}
     //Creates the chess piece at the given position
     ChessPiece(Board* board, PIECE_COLOR color, PIECE_TYPE type)
                 : m_board(board), m_color(color), m_type(type) {}
@@ -26,7 +27,7 @@ public:
     virtual PIECE_TYPE getType() { return m_type; }
 
     //returns a vector of legal moves for a given chess piece
-    virtual vector<Move> getLegalMoves(Board* board, vector<Move>& moves) = 0;
+    virtual vector<Move> getLegalMoves(const Board& board, vector<Move>& moves, int x, int y) = 0;
 
     //returns the character representation of the piece
     virtual char representation() = 0;

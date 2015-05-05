@@ -1,50 +1,5 @@
 # depslib dependency file v1.0
-1430513973 source:c:\users\siggi\desktop\semichess\chesspiece.cpp
-	"chessPiece.h"
-
-1430591292 c:\users\siggi\desktop\semichess\chesspiece.h
-	"move.h"
-	"board.h"
-
-1430573280 c:\users\siggi\desktop\semichess\move.h
-	<string>
-	<vector>
-
-1430582480 source:c:\users\siggi\desktop\semichess\main.cpp
-	<iostream>
-	<cctype>
-	"board.h"
-
-1430591032 c:\users\siggi\desktop\semichess\board.h
-	<iostream>
-	<cstdlib>
-	"chessPiece.h"
-
-1430588999 source:c:\users\siggi\desktop\semichess\board.cpp
-	"board.h"
-
-1430822127 source:c:\users\sigz\desktop\semichess\black.cpp
-	"black.h"
-
-1430822127 c:\users\sigz\desktop\semichess\black.h
-	"chessPiece.h"
-
-1430844923 c:\users\sigz\desktop\semichess\chesspiece.h
-	"move.h"
-	"board.h"
-	"Constants.h"
-
-1430822127 c:\users\sigz\desktop\semichess\move.h
-	<string>
-	<vector>
-
-1430844923 c:\users\sigz\desktop\semichess\board.h
-	<iostream>
-	<cstdlib>
-	"chessPiece.h"
-	"Constants.h"
-
-1430840159 source:c:\users\sigz\desktop\semichess\board.cpp
+1430865534 source:c:\users\siggi\desktop\semichess\board.cpp
 	"board.h"
 	"Pawn.h"
 	"King.h"
@@ -53,32 +8,67 @@
 	"Knight.h"
 	"Rook.h"
 
-1430504012 source:c:\users\sigz\desktop\semichess\chesspiece.cpp
+1430865422 c:\users\siggi\desktop\semichess\board.h
+	<iostream>
+	<time.h>
+	<cstdlib>
+	"chessPiece.h"
+	"Constants.h"
+
+1430863063 c:\users\siggi\desktop\semichess\chesspiece.h
+	"move.h"
+	"board.h"
+	"Constants.h"
+
+1430865074 c:\users\siggi\desktop\semichess\move.h
+	<string>
+	<vector>
+
+1430850701 c:\users\siggi\desktop\semichess\constants.h
+
+1430857803 c:\users\siggi\desktop\semichess\pawn.h
 	"chessPiece.h"
 
-1430843980 source:c:\users\sigz\desktop\semichess\main.cpp
+1430866492 c:\users\siggi\desktop\semichess\king.h
+	"chessPiece.h"
+
+1430866492 c:\users\siggi\desktop\semichess\queen.h
+	"chessPiece.h"
+	"Rook.h"
+	"Bishop.h"
+
+1430866492 c:\users\siggi\desktop\semichess\bishop.h
+	"chessPiece.h"
+
+1430866492 c:\users\siggi\desktop\semichess\knight.h
+	"chessPiece.h"
+
+1430866492 c:\users\siggi\desktop\semichess\rook.h
+	"chessPiece.h"
+
+1430513973 source:c:\users\siggi\desktop\semichess\chesspiece.cpp
+	"chessPiece.h"
+
+1430865587 source:c:\users\siggi\desktop\semichess\main.cpp
 	<iostream>
 	<cctype>
 	"board.h"
 	"Constants.h"
 
-1430834494 c:\users\sigz\desktop\semichess\pawn.h
-	"chessPiece.h"
+1430859367 source:c:\users\siggi\desktop\semichess\pawn.cpp
+	"Pawn.h"
 
-1430834494 c:\users\sigz\desktop\semichess\king.h
-	"chessPiece.h"
+1430861064 source:c:\users\siggi\desktop\semichess\bishop.cpp
+	"Bishop.h"
 
-1430834494 c:\users\sigz\desktop\semichess\queen.h
-	"chessPiece.h"
+1430862292 source:c:\users\siggi\desktop\semichess\king.cpp
+	"King.h"
 
-1430834494 c:\users\sigz\desktop\semichess\bishop.h
-	"chessPiece.h"
+1430862894 source:c:\users\siggi\desktop\semichess\queen.cpp
 
-1430836846 c:\users\sigz\desktop\semichess\knight.h
-	"chessPiece.h"
+1430860767 source:c:\users\siggi\desktop\semichess\rook.cpp
+	"Rook.h"
 
-1430834494 c:\users\sigz\desktop\semichess\rook.h
-	"chessPiece.h"
-
-1430833741 c:\users\sigz\desktop\semichess\constants.h
+1430860116 source:c:\users\siggi\desktop\semichess\knight.cpp
+	"Knight.h"
 
