@@ -6,3 +6,7 @@ chessProto.layout
 *.o
 obj/Debug/chessPiece.o
 *.o
+bin/Debug/chessProto.exe
+chessProto.depend
+*.layout
+*.exe
