@@ -1,1 +1,8 @@
 *.cbp
+ChessProto.layout
+bin/Debug/chessProto.exe
+*.depend
+chessProto.layout
+*.o
+obj/Debug/chessPiece.o
+*.o

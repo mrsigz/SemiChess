@@ -1,41 +1,20 @@
 #include "board.h"
+#include "Pawn.h"
+#include "King.h"
+#include "Queen.h"
+#include "Bishop.h"
+#include "Knight.h"
+#include "Rook.h"
 
 Board::Board(){
     for(int i = 0; i < 8; ++i){
         for(int j = 0; j < 8; ++j){
-            if(i == 0){
-                if(j == 0 || j == 7){
-                    grid[i][j] = new Black(this, CASTLE, CHAR(i), j);
-                }else if(j == 1 || j == 6){
-                    grid[i][j] = new Black(this, KNIGHT, CHAR(i), j);
-                }else if(j == 2 || j == 5){
-                    grid[i][j] = new Black(this, BISHOP, CHAR(i), j);
-                }else if(j == 3){
-                    grid[i][j] = new Black(this, QUEEN, CHAR(i), j);
-                }else if(j == 5){
-                    grid[i][j] = new Black(this, KING, CHAR(i), j);
-                }
-            }else if(i == 1){
-                grid[i][j] = new Black(this, PAWN, CHAR(i), j);
-            }else if(i == 7){
-                if(j == 0 || j == 7){
-                    grid[i][j] = new White(this, CASTLE, CHAR(i), j);
-                }else if(j == 1 || j == 6){
-                    grid[i][j] = new White(this, KNIGHT, CHAR(i), j);
-                }else if(j == 2 || j == 5){
-                    grid[i][j] = new White(this, BISHOP, CHAR(i), j);
-                }else if(j == 3){
-                    grid[i][j] = new White(this, QUEEN, CHAR(i), j);
-                }else if(j == 5){
-                    grid[i][j] = new White(this, KING, CHAR(i), j);
-                }
-            }else if(i == 6){
-                grid[i][j] = new White(this, PAWN, CHAR(i), j);
-            }else{
-                grid[i][j] = NULL;
-            }
+            grid[i][j] = NULL;
+            //cout << "i; " << i << "j: " << j << endl;
         }
     }
+    generateChessPiece(WHITE);
+    generateChessPiece(BLACK);
 }
 
 Board::~Board(){
@@ -54,21 +33,21 @@ int Board::getTurn(){
 
 //print out the board in ascii character form
 void Board::display() const{
-    for(int i = 0; i < 11; ++i){
+    for(int i = 10; i >= 0; --i){
         for(int j = 0; j < 11; ++j){
-            if(i == 0 || i == 9){                       //print upper and lower frame
+            if(i == 1 || i == 10){                       //print upper and lower frame
                 if(j == 10){
                     cout << endl;
                 }else{
                     cout << "--";
                 }
-            }else if((j == 1 || j == 10) && i != 10){   //print right and left frame
+            }else if((j == 1 || j == 10) && i != 0){   //print right and left frame
                 if(j == 10){
                     cout << " |" << endl;;
                 }else{
                     cout << "|";
                 }
-            }else if(i == 10){                          //print board letters
+            }else if(i == 0){                          //print board letters
                 if(j == 0 || j == 9){
                     cout << "  ";
                 }else if(j == 10){
@@ -77,27 +56,28 @@ void Board::display() const{
                     char letter = 96 + j;
                     cout << " " << letter;
                 }
-            }else if(j == 0 && i != 0 && i != 9){       //print board numbers
-                cout << 9 - i;
+            }else if(j == 0 && i != 1 && i != 10){       //print board numbers
+                cout << i - 1;
             }else{                                      //print chess pieces on board, spaces if empty
-                if(grid[i - 1][j - 2] != NULL){
-                    cout << " " << grid[i - 1][j - 2]->representation();
+                if(grid[i - 2][j - 2] != NULL){
+                    cout << " " << grid[i - 2][j - 2]->representation();
                 }else{
                     cout << "  ";
                 }
+                //cout << "  ";
             }
         }
     }
     cout << endl;
 }
 
-ChessPiece* Board::getAt(int x, int y){
-    if(x < 8 && x > 0 && y > 0 && y < 8){
+ChessPiece* Board::getAt(int x, int y) const{
+    if(x < 8 && x >= 0 && y >= 0 && y < 8){
         if(grid[x][y] != NULL){
-            return grid[x][y]
+            return grid[x][y];
         }
     }
-    return (void *) -1;
+    return NULL;
 }
 
 void Board::setAt(ChessPiece* piece, int x, int y){
@@ -105,3 +85,35 @@ void Board::setAt(ChessPiece* piece, int x, int y){
         grid[x][y] = piece;
     }
 }
+
+void Board::generateChessPiece(PIECE_COLOR color){
+    if(color == WHITE){
+        for(int i = 0; i < 8; i++){
+            grid[1][i] = new Pawn(this, WHITE);
+            //cout << "grid[1][i]; " << i << endl;
+        }
+        grid[0][0] = new Rook(this, WHITE);
+        grid[0][7] = new Rook(this, WHITE);
+        grid[0][1] = new Knight(this, WHITE);
+        grid[0][6] = new Knight(this, WHITE);
+        grid[0][2] = new Bishop(this ,WHITE);
+        grid[0][5] = new Bishop(this, WHITE);
+        grid[0][3] = new King(this, WHITE);
+        grid[0][4] = new Queen(this, WHITE);
+    }else{
+        for(int i = 0; i < 8; i++){
+            grid[6][i] = new Pawn(this, BLACK);
+            //cout << "grid[6][i]; " << i << endl;
+        }
+        grid[7][0] = new Rook(this, BLACK);
+        grid[7][7] = new Rook(this, BLACK);
+        grid[7][1] = new Knight(this, BLACK);
+        grid[7][6] = new Knight(this, BLACK);
+        grid[7][2] = new Bishop(this ,BLACK);
+        grid[7][5] = new Bishop(this, BLACK);
+        grid[7][3] = new King(this, BLACK);
+        grid[7][4] = new Queen(this, BLACK);
+    }
+}
+
+vector<Move> getLegalMoves(ChessPiece piece, vector<Move>& moves)
